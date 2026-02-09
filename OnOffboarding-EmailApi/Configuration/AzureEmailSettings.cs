@@ -22,7 +22,7 @@
         }
     }
 
-
+     
     public class EmailSettings
     {
         public const string SectionName = "EmailSettings";

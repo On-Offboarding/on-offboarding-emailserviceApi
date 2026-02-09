@@ -13,7 +13,7 @@ namespace OnOffboarding_EmailApi.Services
         private readonly AzureEmailSettings _acsSettings;
         private readonly EmailSettings _emailSettings;
         private readonly ILogger<EmailService> _logger;
-
+         
         public EmailService(
             IOptions<AzureEmailSettings> acsSettings,
             IOptions<EmailSettings> emailSettings,
