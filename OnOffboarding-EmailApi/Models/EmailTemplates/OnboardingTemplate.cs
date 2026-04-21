@@ -3,7 +3,7 @@
     public class OnboardingTemplate
     {
 
-        public static string GenerateHtml(string firstName,string lastName,string personalNumber,string department,string company,string mobileNumber,DateTime employmentDate,string jobTitle,DateTime startDate,List<string> selectedSystems,string requestedBy,string adminPortalUrl,Guid? caseId = null)
+        public static string GenerateHtml(string firstName,string lastName,string personalNumber,string department,string company,string mobileNumber,DateTime employmentDate,string jobTitle,DateTime startDate,List<string> selectedSystems,string requestedBy,string adminPortalUrl,int caseId = 0)
         {
             // Generera HTML-lista av system med checkboxar (visuellt)
             var systemsHtml = string.Join("", selectedSystems.Select(s =>
@@ -11,11 +11,11 @@
             ));
 
             // Case ID del (om det finns)
-            var caseIdSection = caseId.HasValue
+            var caseIdSection = caseId != 0
                 ? $@"
                 <tr>
                     <td style='padding: 8px; font-weight: bold; color: #555; border-bottom: 1px solid #e0e0e0;'>Case ID:</td>
-                    <td style='padding: 8px; border-bottom: 1px solid #e0e0e0;'>{caseId.Value}</td>
+                    <td style='padding: 8px; border-bottom: 1px solid #e0e0e0;'>{caseId}</td>
                 </tr>"
                 : string.Empty;
 

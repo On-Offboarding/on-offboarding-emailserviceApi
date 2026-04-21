@@ -56,6 +56,6 @@ namespace OnOffboarding_EmailApi.Models.DTOs
         public string RequestedBy { get; set; } = string.Empty;
 
 
-        public Guid? CaseId { get; set; }
+        public int CaseId { get; set; }
     }
 }

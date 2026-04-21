@@ -112,6 +112,7 @@ namespace OnOffboarding_EmailApi.Services
                     employmentDate: dto.EmploymentDate,
                     jobTitle: dto.JobTitle,
                     startDate: dto.StartDate,
+                    endDate: dto.EndDate,
                     selectedSystems: dto.SelectedSystems,
                     requestedBy: dto.RequestedBy,
                     adminPortalUrl: _emailSettings.AdminPortalUrl,

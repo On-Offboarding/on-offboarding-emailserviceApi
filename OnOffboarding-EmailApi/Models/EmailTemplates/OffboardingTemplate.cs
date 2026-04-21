@@ -2,7 +2,7 @@
 {
     public class OffboardingTemplate
     {
-        public static string GenerateHtml(string firstName,string lastName,string personalNumber,string department,string company,string jobTitle,string mobileNumber,DateTime startDate, DateTime employmentDate,List<string> selectedSystems,string requestedBy,string adminPortalUrl,Guid? caseId = null)
+        public static string GenerateHtml(string firstName,string lastName,string personalNumber,string department,string company,string jobTitle,string mobileNumber,DateTime startDate, DateTime employmentDate, DateTime endDate, List<string> selectedSystems,string requestedBy,string adminPortalUrl,int caseId = 0)
         {
             // Generera HTML-lista av system med checkboxar (visuellt)
             var systemsHtml = string.Join("", selectedSystems.Select(s =>
@@ -10,11 +10,11 @@
             ));
 
             // Case ID del (om det finns)
-            var caseIdSection = caseId.HasValue
+            var caseIdSection = caseId != 0
                 ? $@"
                 <tr>
                     <td style='padding: 8px; font-weight: bold; color: #555; border-bottom: 1px solid #e0e0e0;'>Case ID:</td>
-                    <td style='padding: 8px; border-bottom: 1px solid #e0e0e0;'>{caseId.Value}</td>
+                    <td style='padding: 8px; border-bottom: 1px solid #e0e0e0;'>{caseId}</td>
                 </tr>"
                 : string.Empty;
 
@@ -85,6 +85,10 @@
                             <tr>
                                 <td style='padding: 8px; font-weight: bold; color: #555; border-bottom: 1px solid #e0e0e0;'>Startdatum:</td>
                                 <td style='padding: 8px; border-bottom: 1px solid #e0e0e0;'>{startDate:yyyy-MM-dd}</td>
+                            </tr>
+                            <tr>
+                                <td style='padding: 8px; font-weight: bold; color: #555; border-bottom: 1px solid #e0e0e0;'>Slutdatum:</td>
+                                <td style='padding: 8px; border-bottom: 1px solid #e0e0e0;'>{endDate:yyyy-MM-dd}</td>
                             </tr>
                             <tr>
                                 <td style='padding: 8px; font-weight: bold; color: #555; border-bottom: 1px solid #e0e0e0;'>Begärd av:</td>

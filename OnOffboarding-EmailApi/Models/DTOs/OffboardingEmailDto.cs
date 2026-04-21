@@ -45,6 +45,9 @@ namespace OnOffboarding_EmailApi.Models.DTOs
         [Required(ErrorMessage = "Startdatum är obligatoriskt")]
         public DateTime StartDate { get; set; }
 
+        [Required(ErrorMessage = "Slutdatum är obligatoriskt")]
+        public DateTime EndDate { get; set; }
+
         [Required(ErrorMessage = "Minst ett system måste väljas")]
         [MinLength(1, ErrorMessage = "Minst ett system måste väljas")]
         public List<string> SelectedSystems { get; set; } = new();
@@ -57,6 +60,6 @@ namespace OnOffboarding_EmailApi.Models.DTOs
         public string RequestedBy { get; set; } = string.Empty;
 
 
-        public Guid? CaseId { get; set; }
+        public int CaseId { get; set; }
     }
 }
